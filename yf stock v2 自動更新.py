@@ -1,6 +1,7 @@
 ﻿import os
 import yfinance as yf
 import pandas as pd
+from updata_list import remove_stock
 
 # 讀取 stocklist
 stocklist = pd.read_json("stocklist.json", typ="series")
@@ -14,11 +15,14 @@ for company, symbol in stocklist.items():
         # 如果已有 JSON，先讀取舊資料
         if os.path.exists(filename):
             old_df = pd.read_json(filename)
+            old_df["Date"] = pd.to_datetime(old_df["Date"]).dt.tz_localize(None) #Date 欄位轉成 tz-naive
+
             last_date = pd.to_datetime(old_df["Date"]).max()
             # 從最後日期開始抓新資料（+1天避免重複）
             start_date = (last_date + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
             ticker = yf.Ticker(symbol)
             new_df = ticker.history(start=start_date).reset_index()
+            new_df["Date"] = new_df["Date"].dt.tz_localize(None)
             update_type = 1
         
         else:
@@ -27,8 +31,16 @@ for company, symbol in stocklist.items():
             new_df = ticker.history(period="max").reset_index()
             old_df = pd.DataFrame()
 
+
         # 新增移動平均欄位
         combined = pd.concat([old_df, new_df]).drop_duplicates(subset=["Date"]).sort_values("Date")
+
+        # 如果合併後仍然是空的無法抓取
+        if combined.empty:
+            print(f"{company} ({symbol}) → 無法抓取該內容")
+            remove_stock(company)
+            continue
+
         combined["SMA_5"] = combined["Close"].rolling(window=5).mean()
         combined["SMA_10"] = combined["Close"].rolling(window=10).mean()
         combined["SMA_18"] = combined["Close"].rolling(window=18).mean()
@@ -43,3 +55,4 @@ for company, symbol in stocklist.items():
 
     except Exception as e:
         print(f"抓取 {symbol} 失敗: {e}")
+        remove_stock(company)
