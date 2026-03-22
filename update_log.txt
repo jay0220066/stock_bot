@@ -1,0 +1,88 @@
+2026-03-21 22:47:05.074031 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:05.241146 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:05.392529 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:05.502162 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:05.673203 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:05.876160 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:06.067612 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:47:06.256841 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:41.050354 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:41.214128 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:41.365595 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:41.578312 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:41.752337 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:41.951672 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:42.156242 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:48:42.354526 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:12.662251 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:12.842077 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:12.995535 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:13.104377 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:13.275842 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:13.477558 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:13.769999 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:50:13.970058 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 22:53:28.931268 - 抓取 AAPL 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__Apple_AA__77387D06B0E10862'。無法在物件 'dbo.Apple_AAPL' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:29.130204 - 抓取 QCOM 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__Qualcomm__77387D068A5EF5A3'。無法在物件 'dbo.Qualcomm_QCOM' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:29.308846 - 抓取 AMD 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__AMD_AMD__77387D06FAC9AED0'。無法在物件 'dbo.AMD_AMD' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:29.445725 - 抓取 VRT 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__Vertiv_V__77387D06FFF511DC'。無法在物件 'dbo.Vertiv_VRT' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:29.642286 - 抓取 MSFT 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__Microsof__77387D0600B1747F'。無法在物件 'dbo.Microsoft_MSFT' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:29.869221 - 抓取 C 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__Citigrou__77387D06A41C7BAA'。無法在物件 'dbo.Citigroup_C' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:30.108055 - 抓取 T 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__AT&T_T__77387D062890D0B8'。無法在物件 'dbo.AT&T_T' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:53:30.332657 - 抓取 VZ 失敗: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]違反 PRIMARY KEY 條件約束 'PK__Verizon___77387D0607FDD880'。無法在物件 'dbo.Verizon_VZ' 中插入重複的索引鍵。重複的索引鍵值是 (2026-03-20)。 (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]陳述式已經結束。 (3621)")
+2026-03-21 22:55:59.169286 - 已更新 Apple (AAPL) → 新增 0 筆
+2026-03-21 22:55:59.353918 - 已更新 Qualcomm (QCOM) → 新增 0 筆
+2026-03-21 22:55:59.530467 - 已更新 AMD (AMD) → 新增 0 筆
+2026-03-21 22:55:59.647357 - 已更新 Vertiv (VRT) → 新增 0 筆
+2026-03-21 22:55:59.843607 - 已更新 Microsoft (MSFT) → 新增 0 筆
+2026-03-21 22:56:00.062043 - 已更新 Citigroup (C) → 新增 0 筆
+2026-03-21 22:56:00.287814 - 已更新 AT&T (T) → 新增 0 筆
+2026-03-21 22:56:00.507791 - 已更新 Verizon (VZ) → 新增 0 筆
+2026-03-21 22:56:40.390614 - 已更新 Apple (AAPL) → 新增 1 筆
+2026-03-21 22:56:40.577062 - 已更新 Qualcomm (QCOM) → 新增 0 筆
+2026-03-21 22:56:40.758108 - 已更新 AMD (AMD) → 新增 0 筆
+2026-03-21 22:56:40.875289 - 已更新 Vertiv (VRT) → 新增 0 筆
+2026-03-21 22:56:41.066451 - 已更新 Microsoft (MSFT) → 新增 0 筆
+2026-03-21 22:56:41.294622 - 已更新 Citigroup (C) → 新增 0 筆
+2026-03-21 22:56:41.517363 - 已更新 AT&T (T) → 新增 1 筆
+2026-03-21 22:56:41.744027 - 已更新 Verizon (VZ) → 新增 0 筆
+2026-03-21 23:07:33.219850 - 已更新 Apple (AAPL) → 新增 1 筆
+2026-03-21 23:07:33.406945 - 已更新 Qualcomm (QCOM) → 新增 1 筆
+2026-03-21 23:07:33.578376 - 已更新 AMD (AMD) → 新增 1 筆
+2026-03-21 23:07:33.693026 - 已更新 Vertiv (VRT) → 新增 1 筆
+2026-03-21 23:07:33.878731 - 已更新 Microsoft (MSFT) → 新增 1 筆
+2026-03-21 23:07:34.093349 - 已更新 Citigroup (C) → 新增 1 筆
+2026-03-21 23:07:34.330588 - 已更新 AT&T (T) → 新增 1 筆
+2026-03-21 23:07:34.562208 - 已更新 Verizon (VZ) → 新增 1 筆
+2026-03-21 23:13:33.475166 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:33.641246 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:33.793011 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:33.908425 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:34.077401 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:34.277162 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:34.669260 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:34.875791 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:56.607255 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:56.784784 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:56.935977 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:57.041899 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:57.215816 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:57.429812 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:57.615691 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:13:57.845479 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:57.072592 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:57.253981 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:57.405285 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:57.513186 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:57.673978 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:57.864290 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:58.085846 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:15:58.294859 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:12.070300 - 抓取 AAPL 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:12.242348 - 抓取 QCOM 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:12.392890 - 抓取 AMD 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:12.498643 - 抓取 VRT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:12.664206 - 抓取 MSFT 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:12.863790 - 抓取 C 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:13.060049 - 抓取 T 失敗: Cannot compare tz-naive and tz-aware timestamps
+2026-03-21 23:17:13.255338 - 抓取 VZ 失敗: Cannot compare tz-naive and tz-aware timestamps
