@@ -3,13 +3,14 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from linebot.exceptions import InvalidSignatureError
 
-from updata_list import parse_command  # 👈 直接用你剛寫的
+#自己寫的
+from updata_list import parse_command  
 
 app = Flask(__name__)
 
 # 👉 換成你自己的
-LINE_CHANNEL_ACCESS_TOKEN = "你的Token"
-LINE_CHANNEL_SECRET = "你的Secret"
+LINE_CHANNEL_ACCESS_TOKEN = "Ghkz1p8lEBMnZqLEe5BQu55s+d3EkxYiAk4TEcdyiAkvh9rNkoxCa0UQSkCVaV5mYLMtF9tZZX2r51ODmtPOYNC9YZ0DjynXrliLhgDDefR7f7+w0WPsWeiAHeqvmyAzYtO8JA/k/5ZQBfP/4AZQVwdB04t89/1O/w1cDnyilFU="  #你的Token
+LINE_CHANNEL_SECRET = "44007dc1bd0b962d30e59ad07b507e37"  #你的Secret
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)

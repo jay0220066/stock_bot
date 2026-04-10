@@ -1,6 +1,10 @@
 ﻿import yfinance as yf
 import json
 import os
+import pandas as pd
+from get_stork import get_price
+from yf_stock_v2_1 import stock_updata
+
 
 FILE = "stocklist.json"
 PRICE_DIR = "data"  # 股票 JSON 資料夾
@@ -31,34 +35,54 @@ def save_stock(data):
 
 def add_stock(name, code):
     data = load_stock()
+    result = ""
+    if len(name) != len(code):
+        return f"❌ 格式：加 名稱 代號"
 
-    if name in data:
-        return f"{name} 已存在"
+    for i in range(len(name)):
+        if name[i] in data or code[i] in data.values():
+            result += f"{name[i]} 已存在 \n"
+        else:
 
-    if code in data.values():
-        return f"{code} 已存在"
+            '''
+            stock = yf.Ticker(code[i])
+            hist = stock.history(period="1d")
+            if hist.empty:
+                result += f"❌ 無法抓取 {name[i]} ({code[i]}) 的股價資料，不新增 \n"
+                continue
+            ''' 
+
+            data[name[i]] = code[i]
+            save_stock(data)
+
+            result += f"✅ 已新增 {name[i]} ({code[i]})\n"
     
-    stock = yf.Ticker(code)
-    hist = stock.history(period="1d")
-    if hist.empty:
-        return f"❌ 無法抓取 {name} ({code}) 的股價資料，不新增"
-
-    data[name] = code
-    save_stock(data)
-
-    return f"✅ 已新增 {name} ({code})"
+    return result
 
 
 def remove_stock(name):
     data = load_stock()
+    result = ""
 
-    if name not in data:
-        return f"{name} 不存在"
+    for i in range(0,len(name)):
+        if name[i] not in data:
+            if name[i] not in data.values():
+                result += f"{name[i]} 不存在 \n"
+            else:
+                for k, v in data.items():
+                    if v == name[i]:
+                        key = k
+                        data.pop(key)
+                        result += f"🗑️ 已刪除 {key}\n"
+                        break 
+        else:
+            data.pop(name[i])
+            result += f"🗑️ 已刪除 {name[i]}\n"
 
-    data.pop(name)
+
     save_stock(data)
 
-    return f"🗑️ 已刪除 {name}"
+    return result
 
 
 def list_stock():
@@ -75,21 +99,6 @@ def list_stock():
 
 
 # ======================
-# 股價讀取
-# ======================
-
-def load_price(code):
-    filepath = os.path.join(PRICE_DIR, f"{code}.json")
-    if not os.path.exists(filepath):
-        return None
-    try:
-        with open(filepath, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except:
-        return None
-
-
-# ======================
 # 簡易自然語言解析
 # ======================
 
@@ -99,13 +108,13 @@ def parse_command(text):
     # 👉 新增
     if text.startswith("加"):
         parts = text.split()
-        if len(parts) >= 3:
-            return add_stock(parts[1], parts[2])
-        elif len(parts) == 1:
-            # 格式2：只輸入「加」
-            name = input("👉 請輸入股票名稱：")
-            code = input("👉 請輸入股票代號：")
-            return add_stock(name, code)
+        if len(parts) >= 3 and len(parts)%2 == 1:
+            namelist = []
+            codelist = []
+            for i in range(0,(len(parts)-1)//2):
+                namelist.append(parts[2*i+1])
+                codelist.append(parts[2*i+2])
+            return add_stock(namelist, codelist)
         else:
             return "❌ 格式：加 名稱 代號"
 
@@ -113,13 +122,10 @@ def parse_command(text):
     elif text.startswith("刪"):
         parts = text.split()
         if len(parts) >= 2:
-            return remove_stock(parts[1])
-        elif len(parts) == 1:
-            # 格式2：只輸入「刪」
-            name = input("👉 請輸入要刪除的股票名稱：")
-            return remove_stock(name)
+            parts = parts[1:]
+            return remove_stock(parts)
         else:
-            return "❌ 格式：刪 名稱"
+            return "❌ 格式：刪 名稱or代號"
 
     # 👉 查詢清單
     elif text in ["查", "查詢", "list"]:
@@ -128,39 +134,47 @@ def parse_command(text):
     # 👉 查股價
     elif text.startswith("股價"):
         parts = text.split()
+        
+        if len(parts) == 1:
+            return "❌ 格式：股價 名稱or代號"
+        
         data = load_stock()
+        result = ""
 
-        if len(parts) >= 2:
-            results = []
-            for name in parts[1:]:
-                if name not in data:
-                    results.append(f"❌ {name} 不在清單中")
-                    continue
+        for i in range(1,len(parts)):
+            key = ""
+            value = ""
 
-                code = data[name]
-                price = load_price(code)
-                if not price:
-                    results.append(f"❌ 沒有 {name} ({code}) 的股價資料")
-                    continue
+            if parts[i] in data :
+                stock = parts[i] + "_" + data[parts[i]]
+                result += get_price(stock)
 
-                results.append(
-                    f"📈 {name} ({code}) 股價：開 {price['Open']} 高 {price['High']} 低 {price['Low']} 收 {price['Close']}"
-                )
-            return "\n".join(results)
+            elif parts[i] in data.values():
+                for k ,v in data.items():
+                    if v == parts[i]:
+                        stock =  k + "_" + v
+                        result += get_price(stock)
+            
+            else:
+                if parts[i] in data :
+                    remove_stock(parts[i])
+                    stock = parts[i] + "_" + data[parts[i]]
+                    result += f"\n 沒有{name}的內容 請更新list或檢查輸入內容 \n \n"
 
-        elif len(parts) == 1:
-            # 格式2：只輸入「股價」
-            name = input("👉 請輸入要查詢的股票名稱：")
-            if name not in data:
-                return f"❌ {name} 不在清單中"
-            code = data[name]
-            price = load_price(code)
-            if not price:
-                return f"❌ 沒有 {name} ({code}) 的股價資料"
-            return f"📈 {name} ({code}) 股價：開 {price['Open']} 高 {price['High']} 低 {price['Low']} 收 {price['Close']}"
-
-        else:
-            return "❌ 格式：股價 名稱1 名稱2 ..."
+                elif parts[i] in data.values():
+                    for k ,v in data.items():
+                        if v == parts[i]:
+                            remove_stock(k)
+                            stock =  k + "_" + v
+                            result += f"\n 沒有{name}的內容 請更新list或檢查輸入內容 \n \n"
+                
+        return result
+    
+    elif text.startswith("更新"):   
+        stock_updata()
+        
+        return "資料更新完成"
+    
 
     return "❌ 無法辨識指令"
 
@@ -168,7 +182,7 @@ def parse_command(text):
 # ======================
 # 主程式（CLI 測試用）
 # ======================
-
+'''
 if __name__ == "__main__":
     print("📈 股票管理系統（輸入 exit 離開）")
 
@@ -180,3 +194,6 @@ if __name__ == "__main__":
 
         result = parse_command(cmd)
         print(result)
+        
+'''
+print(parse_command("更新"))
