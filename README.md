@@ -28,7 +28,7 @@ stock-line-bot/
 ├── data/                     # 股票歷史資料
 ├── stocklist.json            # 股票清單
 ├── updata_list.py            # 指令解析 / 股票管理
-├── yf_stock_v2.py            # 股票資料抓取
+├── yf_stock_v2_1.py          # 股票資料抓取
 ├── line_bot.py               # LINE Webhook Server
 ├── requirements.txt
 └── README.md
