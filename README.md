@@ -1,4 +1,4 @@
-```md
+
 # 📈 股票 LINE Bot
 
 > 一個以 Python 打造的輕量級股票查詢 LINE Bot，整合 Yahoo Finance，支援即時查詢、自訂股票清單與自動資料更新，適合作為實務專案與系統設計展示。
@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/status-active-success)
 '''
----
+
 
 ## ✨ 功能特色
 
